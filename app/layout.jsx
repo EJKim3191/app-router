@@ -1,7 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
-import AppNavigation from "./components/AppNavigation";
+import AppNavigation from "./_components/AppNavigation";
 
 export const metadata = {
   title: "Create Next App",
