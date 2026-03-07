@@ -1,6 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
+import AppNavigation from "./components/AppNavigation";
 
 export const metadata = {
   title: "Create Next App",
@@ -11,17 +12,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <div>
-          <br />
-          <a href="/">Home</a> / &nbsp;
-          <a href="/login">Login</a>  
-          <br />
-          <Link href="/">Home</Link> / &nbsp;
-          <Link href="/login">Login</Link>  
-          <br />
-          <br />
-        </div>
-            {children}
+        <AppNavigation />
+        {children}
         </body>
         </html>
     )
