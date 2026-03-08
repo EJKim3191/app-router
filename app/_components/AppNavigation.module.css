@@ -1,0 +1,16 @@
+/* 이 링크 컴포넌트는 버튼 모양이고, 방문한 url이 구분될 수 있게 스타일링 해줘 */
+.link {
+    font-size: 40px;
+    background-color: #f0f0f0;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #333;
+}
+/* 각자 다른 색깔로 스타일링 해줘(색깔은 자유롭게 정해줘) 눈에띄게 서로 다른 색깔로 만들어줘*/
+.link:hover {
+    color: blue;
+}
+.link:active {
+    color: green;
+}

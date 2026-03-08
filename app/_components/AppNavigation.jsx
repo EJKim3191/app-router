@@ -1,4 +1,5 @@
 import Link from "next/link";
+import styles from "./AppNavigation.module.css";
 
 function AppNavigation() {
     return (
@@ -7,8 +8,8 @@ function AppNavigation() {
             <a href="/">Home</a> / &nbsp;
             <a href="/login">Login</a>  
             <br />
-            <Link href="/">Home</Link> / &nbsp;
-            <Link href="/login">Login</Link>  
+            <Link href="/" className={styles.link}>Home</Link> / &nbsp;
+            <Link href="/login" className={styles.link}>Login</Link>  
             <br />
             <br />
         </div>
