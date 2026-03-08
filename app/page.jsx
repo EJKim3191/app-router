@@ -22,10 +22,12 @@ async function ProductList() {
                     {products.map((product) => (
                         <li key={product.id} className={styles.productCard}>
                             <div className={styles.productImageWrapper}>
-                                <img
+                                <Image 
                                     src={product.image_url}
                                     alt={product.name}
                                     className={styles.productImage}
+                                    width={300}
+                                    height={300}
                                 />
                             </div>
                             <h2 className={styles.productName}>{product.name}</h2>
