@@ -13,7 +13,13 @@ async function getProduct(id) {
 async function ProductDetail({ params }) {
   const { id } = await params;
   const product = await getProduct(id);
-
+// 클라이언트 컴포넌트에서 서버 컴포넌트의 데이터를 사용할 때
+//   useEffect(() => {
+//     getProduct(id).then((product) => {
+//       console.log(product);
+//     });
+//     console.log(product);
+//   }, [product]);
 //   function showAlert() {
 //     alert("장바구니에 담겼습니다.");
 //   }
