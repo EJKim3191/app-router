@@ -11,6 +11,11 @@ async function getProduct(id) {
 }
 
 async function ProductDetail({ params }) {
+    await new Promise((resolve) => {
+        setTimeout(() => {
+            resolve('데이터 조회 완료');
+        }, 3000);
+    });
   const { id } = await params;
   const product = await getProduct(id);
 // 클라이언트 컴포넌트에서 서버 컴포넌트의 데이터를 사용할 때
