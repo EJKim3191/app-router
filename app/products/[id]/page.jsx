@@ -1,7 +1,7 @@
 /** 상품 상세 페이지 */
 import Image from "next/image";
 import styles from "./page.module.css";
-
+import CartButton from "./CartButton";
 const apiUrl = "https://app-router-api-five.vercel.app/api/products";
 
 async function getProduct(id) {
@@ -12,9 +12,11 @@ async function getProduct(id) {
 
 async function ProductDetail({ params }) {
   const { id } = await params;
-  console.log(params);
   const product = await getProduct(id);
-  console.log(product);
+
+//   function showAlert() {
+//     alert("장바구니에 담겼습니다.");
+//   }
 
   return (
     <div className={styles.page}>
@@ -50,9 +52,10 @@ async function ProductDetail({ params }) {
             </div>
 
             <div className={styles.actions}>
-              <button type="button" className={styles.primaryButton}>
+            {/* <button type="button" className={styles.primaryButton} onClick={showAlert}>
                 장바구니에 담기
-              </button>
+              </button> */}
+              <CartButton />
               <p className={styles.helpText}>
                 결제 단계에서 수량과 배송지를 다시 확인하실 수 있어요.
               </p>
@@ -65,3 +68,7 @@ async function ProductDetail({ params }) {
 }
 
 export default ProductDetail;
+
+/** Next에서 서버 컴포넌트를 사용할 때 권고사항으로 필요한 동작이 있는 특유의 컴포넌트를 따로 클라이언트 컴포넌트화 하여 관리하는 것이 좋다
+ * 예: CartButton.jsx
+ */
