@@ -1,5 +1,6 @@
 import Image from "next/image";
 import styles from "./page.module.css";
+import Link from "next/link";
 
 const apiUrl = "https://app-router-api-five.vercel.app/api/products";
 
@@ -9,6 +10,7 @@ async function getProducts() {
     console.log(data);
     return data;
 }
+
 // cmd shift p -> cursor new chat 
 /** 상품 목록 페이지 */
 async function ProductList() {
@@ -21,18 +23,20 @@ async function ProductList() {
                 <ul className={styles.productGrid}>
                     {products.map((product) => (
                         <li key={product.id} className={styles.productCard}>
-                            <div className={styles.productImageWrapper}>
-                                <Image 
-                                    src={product.image_url}
-                                    alt={product.name}
-                                    className={styles.productImage}
-                                    width={300}
-                                    height={300}
-                                />
-                            </div>
-                            <h2 className={styles.productName}>{product.name}</h2>
-                            <p className={styles.productDescription}>{product.description}</p>
-                            <p className={styles.productPrice}>{product.price}</p>
+                            <Link href={`products/${product.id}`}>
+                                <div className={styles.productImageWrapper}>
+                                    <Image 
+                                        src={product.image_url}
+                                        alt={product.name}
+                                        className={styles.productImage}
+                                        width={300}
+                                        height={300}
+                                    />
+                                </div>
+                                <h2 className={styles.productName}>{product.name}</h2>
+                                <p className={styles.productDescription}>{product.description}</p>
+                                <p className={styles.productPrice}>{product.price}</p>
+                            </Link>
                         </li>
                     ))}
                 </ul>
