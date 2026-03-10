@@ -9,6 +9,15 @@ async function addToCart(productId) {
         method: 'POST',
         body: JSON.stringify({ id: productId }),
     });
+
+    if (!response.ok) {
+        // throw new Error({
+        //     message: "장바구니에 담기 실패",
+        //     status: response.status,
+        // });
+        throw new Error("장바구니에 담기 실패");
+    }
+
     const data = await response.json();
     return data;
 }
@@ -16,14 +25,19 @@ async function addToCart(productId) {
 function CartButton({ productId }) {
     const router = useRouter();
     
-    const showAlert = async () => {
-        await addToCart(productId);
-        alert("장바구니에 담겼습니다.");
-        router.push('/cart');
+    const addProductToCart = async () => {
+        try {
+            await addToCart(productId);
+            alert("장바구니에 담겼습니다.");
+            router.push('/cart');
+        } catch (error) {
+            console.error(error);
+            alert("장바구니에 담기 실패");
+        }
     }
 
     return (
-        <button type="button" className={styles.primaryButton} onClick={showAlert}>
+        <button type="button" className={styles.primaryButton} onClick={addProductToCart}>
         장바구니에 담기
       </button>
     )
