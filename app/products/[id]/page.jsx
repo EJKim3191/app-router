@@ -66,7 +66,7 @@ async function ProductDetail({ params }) {
             {/* <button type="button" className={styles.primaryButton} onClick={showAlert}>
                 장바구니에 담기
               </button> */}
-              <CartButton />
+              <CartButton productId={id}/>
               <p className={styles.helpText}>
                 결제 단계에서 수량과 배송지를 다시 확인하실 수 있어요.
               </p>
