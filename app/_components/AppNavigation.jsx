@@ -9,7 +9,7 @@ function AppNavigation() {
             <a href="/login">Login</a>  
             <br />
             <Link href="/" className={styles.link}>Home</Link> / &nbsp;
-            <Link href="/login" className={styles.link}>Login</Link>  
+            <Link href="/cart" className={styles.link}>Cart</Link>  
             <br />
             <br />
         </div>
