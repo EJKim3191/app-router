@@ -1,6 +1,7 @@
 // cart -> 장바구니 페이지
 
 import styles from "./page.module.css";
+import CartItemDelete from "./_components/CartItemDelete";
 
 const apiUrl = "https://app-router-api-five.vercel.app/api/cart";
 
@@ -23,8 +24,8 @@ async function CartPage() {
         <div className={styles.container}>
             <h1 className={styles.title}>장바구니</h1>
             <ul className={styles.list}>
-                {cart.map((item) => (
-                    <li key={item.id} className={styles.card}>
+                {cart.map((item, e) => (
+                    <li key={item.id+'_cart_'+e} className={styles.card}>
                         <div className={styles.thumbWrapper}>
                             <img
                                 src={item.image_url}
@@ -38,6 +39,7 @@ async function CartPage() {
                                 {item.price.toLocaleString()}원
                             </div>
                         </div>
+                        <CartItemDelete productId={item.id}/>
                     </li>
                 ))}
             </ul>

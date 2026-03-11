@@ -2,24 +2,11 @@
 import styles from "./page.module.css"
 import { useRouter } from "next/navigation";
 
-const apiUrl = "https://app-router-api-five.vercel.app/api/cart";
-
-async function addToCart(productId) {
-    const response = await fetch(apiUrl, {
+function addToCart(productId) {
+    fetch(`/api/cart`, {
         method: 'POST',
-        body: JSON.stringify({ id: productId }),
+        body: JSON.stringify({ productId }),
     });
-
-    if (!response.ok) {
-        // throw new Error({
-        //     message: "장바구니에 담기 실패",
-        //     status: response.status,
-        // });
-        throw new Error("장바구니에 담기 실패");
-    }
-
-    const data = await response.json();
-    return data;
 }
 
 function CartButton({ productId }) {
